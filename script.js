@@ -297,6 +297,18 @@ class AliasGame {
         document.getElementById('roundStartPlayerName').textContent = this.currentPlayer;
         document.getElementById('roundStartRoundNumber').textContent = this.currentRound;
         
+        // Показуємо поточний рахунок
+        const scoresDisplay = document.getElementById('roundStartScoresDisplay');
+        scoresDisplay.innerHTML = this.teams.map(team => {
+            const isCurrentTeam = team.id === currentTeam.id;
+            return `
+                <div class="round-start-score-item ${isCurrentTeam ? 'active' : ''}">
+                    <div class="round-start-score-team-name">${team.name}</div>
+                    <div class="round-start-score-value">${this.scores[team.id] || 0}</div>
+                </div>
+            `;
+        }).join('');
+        
         this.showScreen('roundStartScreen');
     }
 

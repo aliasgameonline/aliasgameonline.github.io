@@ -72,11 +72,15 @@
         <!-- Екран початку раунду -->
         <div id="roundStartScreen" class="screen">
             <div class="round-start-content">
-                <h1>Початок раунду</h1>
+                <div class="round-start-header">
+                    <div class="round-start-round-display">Раунд: <span id="roundStartRoundNumber"></span></div>
+                </div>
                 <div class="round-start-info">
                     <div class="round-start-team">Команда: <span id="roundStartTeamName"></span></div>
                     <div class="round-start-player">Пояснює: <span id="roundStartPlayerName"></span></div>
-                    <div class="round-start-round">Раунд: <span id="roundStartRoundNumber"></span></div>
+                </div>
+                <div class="round-start-scores">
+                    <div id="roundStartScoresDisplay"></div>
                 </div>
                 <button id="startRoundBtn" class="btn btn-primary btn-large">Старт</button>
             </div>
@@ -106,9 +110,18 @@
             </div>
 
             <div class="round-info">
-                <div>Раунд: <span id="roundNumber">1</span></div>
-                <div>Команда: <span id="currentTeamDisplay"></span></div>
-                <div>Пояснює: <span id="currentPlayerDisplay"></span></div>
+                <div class="round-info-item">
+                    <span class="round-info-label">Раунд:</span>
+                    <span class="round-info-value" id="roundNumber">1</span>
+                </div>
+                <div class="round-info-item">
+                    <span class="round-info-label">Команда:</span>
+                    <span class="round-info-value" id="currentTeamDisplay"></span>
+                </div>
+                <div class="round-info-item">
+                    <span class="round-info-label">Пояснює:</span>
+                    <span class="round-info-value" id="currentPlayerDisplay"></span>
+                </div>
             </div>
         </div>
 

@@ -439,6 +439,38 @@ h2 {
     text-align: center;
     color: #666;
     font-size: 1.1em;
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+    flex-wrap: wrap;
+    padding: 20px;
+    background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+    border-radius: 15px;
+    margin-top: 20px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+}
+
+.round-info-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 5px;
+    min-width: 120px;
+}
+
+.round-info-label {
+    font-size: 0.85em;
+    color: #888;
+    font-weight: 500;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.round-info-value {
+    font-size: 1.3em;
+    font-weight: bold;
+    color: #667eea;
+    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
 }
 
 /* Екран початку раунду */
@@ -451,33 +483,104 @@ h2 {
     text-align: center;
 }
 
+.round-start-header {
+    margin-bottom: 30px;
+}
+
+.round-start-round-display {
+    font-size: 2.5em;
+    font-weight: bold;
+    color: #667eea;
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.round-start-round-display span {
+    color: #764ba2;
+}
+
 .round-start-info {
     background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
     color: white;
     padding: 40px;
     border-radius: 20px;
-    margin: 40px 0;
+    margin: 30px 0;
     box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
     min-width: 400px;
     max-width: 600px;
 }
 
 .round-start-team,
-.round-start-player,
-.round-start-round {
+.round-start-player {
     font-size: 1.5em;
     margin: 20px 0;
     font-weight: 600;
 }
 
 .round-start-team span,
-.round-start-player span,
-.round-start-round span {
+.round-start-player span {
     font-weight: bold;
     font-size: 1.2em;
     display: block;
     margin-top: 10px;
     color: #ffd700;
+}
+
+.round-start-scores {
+    margin: 30px 0;
+    width: 100%;
+    max-width: 600px;
+}
+
+#roundStartScoresDisplay {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    gap: 15px;
+    justify-content: center;
+    align-items: center;
+}
+
+.round-start-score-item {
+    background: linear-gradient(135deg, #f5f5f5 0%, #e8e8e8 100%);
+    padding: 15px 25px;
+    border-radius: 12px;
+    font-weight: 600;
+    min-width: 120px;
+    text-align: center;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease;
+    border: 2px solid transparent;
+    flex-shrink: 0;
+}
+
+.round-start-score-item.active {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: white;
+    border-color: #5568d3;
+    box-shadow: 0 4px 15px rgba(102, 126, 234, 0.4);
+    transform: translateY(-2px);
+}
+
+.round-start-score-team-name {
+    font-size: 0.9em;
+    opacity: 0.9;
+    margin-bottom: 5px;
+    font-weight: 500;
+}
+
+.round-start-score-item.active .round-start-score-team-name {
+    opacity: 1;
+    font-weight: 600;
+}
+
+.round-start-score-value {
+    font-size: 1.8em;
+    font-weight: bold;
+    color: #333;
+}
+
+.round-start-score-item.active .round-start-score-value {
+    color: white;
 }
 
 /* Результати */
@@ -589,15 +692,56 @@ h2 {
     }
 
     .round-start-team,
-    .round-start-player,
-    .round-start-round {
+    .round-start-player {
         font-size: 1.2em;
+    }
+
+    .round-start-round-display {
+        font-size: 2em;
+    }
+
+    .round-start-scores {
+        max-width: 100%;
+        overflow-x: auto;
+        padding: 0 10px;
+    }
+
+    #roundStartScoresDisplay {
+        gap: 10px;
+        justify-content: flex-start;
+    }
+
+    .round-start-score-item {
+        min-width: 100px;
+        padding: 12px 20px;
+    }
+
+    .round-start-score-value {
+        font-size: 1.5em;
     }
 
     .btn-large {
         padding: 15px 30px;
         font-size: 1.2em;
         min-width: 150px;
+    }
+
+    .round-info {
+        gap: 20px;
+        padding: 15px;
+        margin-top: 15px;
+    }
+
+    .round-info-item {
+        min-width: 100px;
+    }
+
+    .round-info-label {
+        font-size: 0.75em;
+    }
+
+    .round-info-value {
+        font-size: 1.1em;
     }
 }
 
