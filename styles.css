@@ -405,6 +405,20 @@ h2 {
     align-items: center;
 }
 
+.word-theme {
+    font-size: 1.2em;
+    color: #764ba2;
+    font-weight: 600;
+    margin-bottom: 15px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    opacity: 0.9;
+    padding: 8px 20px;
+    background: linear-gradient(135deg, #e8e5ff 0%, #f0edff 100%);
+    border-radius: 20px;
+    display: inline-block;
+}
+
 .word {
     font-size: 4em;
     font-weight: bold;
@@ -795,6 +809,12 @@ h2 {
     .word {
         font-size: 2.5em;
         padding: 20px 10px;
+    }
+
+    .word-theme {
+        font-size: 1em;
+        padding: 6px 15px;
+        margin-bottom: 10px;
     }
 
     .timer {

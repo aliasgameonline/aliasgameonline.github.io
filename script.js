@@ -2224,7 +2224,9 @@ class AliasGame {
         const allWords = [];
         this.selectedThemes.forEach(theme => {
             if (wordDatabase[theme]) {
-                allWords.push(...wordDatabase[theme]);
+                wordDatabase[theme].forEach(word => {
+                    allWords.push({ word: word, theme: theme });
+                });
             }
         });
 
@@ -2247,19 +2249,32 @@ class AliasGame {
         document.getElementById('currentTeamName').textContent = `Зараз: ${currentTeam.name}`;
         document.getElementById('currentPlayerDisplay').textContent = this.currentPlayer || 'Учасник';
         
+        // Мапа назв тематик українською
+        const themeNames = {
+            'movies': 'Фільми та серіали',
+            'history': 'Історія України',
+            'music': 'Музика',
+            'realities': 'Українські реалії',
+            'famous': 'Відомі люди'
+        };
+        
         // Перевіряємо чи є слова і чи не вийшли за межі масиву
         if (!this.currentWords || this.currentWords.length === 0) {
             this.generateWords();
         }
         
         if (this.currentWordIndex < this.currentWords.length) {
-            document.getElementById('currentWord').textContent = this.currentWords[this.currentWordIndex];
+            const currentWordData = this.currentWords[this.currentWordIndex];
+            document.getElementById('currentWord').textContent = currentWordData.word;
+            document.getElementById('currentTheme').textContent = themeNames[currentWordData.theme] || currentWordData.theme;
         } else {
             // Закінчилися слова, генеруємо нові
             this.generateWords();
             this.currentWordIndex = 0;
             if (this.currentWords.length > 0) {
-                document.getElementById('currentWord').textContent = this.currentWords[this.currentWordIndex];
+                const currentWordData = this.currentWords[this.currentWordIndex];
+                document.getElementById('currentWord').textContent = currentWordData.word;
+                document.getElementById('currentTheme').textContent = themeNames[currentWordData.theme] || currentWordData.theme;
             }
         }
     }
