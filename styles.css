@@ -612,27 +612,189 @@ h2 {
     flex-wrap: wrap;
 }
 
-/* Адаптивність */
+/* Адаптивність для мобільних пристроїв */
 @media (max-width: 768px) {
+    body {
+        padding: 0;
+        background: white;
+    }
+
     .container {
         border-radius: 0;
+        box-shadow: none;
         min-height: 100vh;
+        max-width: 100%;
+        background: white;
     }
 
     .screen {
-        padding: 20px;
+        padding: 10px;
     }
 
     h1 {
-        font-size: 2em;
+        font-size: 1.8em;
+        margin-bottom: 15px;
+        padding: 0 10px;
     }
 
+    h2 {
+        font-size: 1.2em;
+        margin-bottom: 12px;
+        padding: 0 10px;
+    }
+
+    .section {
+        margin-bottom: 15px;
+        padding: 0;
+    }
+
+    .section label {
+        padding: 0 10px;
+    }
+
+    /* Тематика - на всю ширину без карток, як список */
     .themes-grid {
         grid-template-columns: 1fr;
+        gap: 0;
+        margin-bottom: 15px;
+    }
+
+    .theme-option {
+        border-radius: 0;
+        padding: 18px 20px;
+        background: white;
+        border: none;
+        border-bottom: 1px solid #e0e0e0;
+        margin: 0;
+        width: 100%;
+        box-shadow: none;
+    }
+
+    .theme-option:first-child {
+        border-top: 1px solid #e0e0e0;
+    }
+
+    .theme-option:hover {
+        background: #f5f5f5;
+        transform: none;
+    }
+
+    .theme-option:has(input:checked) {
+        background: #e8e5ff;
+        border-bottom-color: #667eea;
+        border-left: 4px solid #667eea;
+    }
+
+    /* Команди - на всю ширину без карток */
+    .team {
+        border-radius: 0;
+        padding: 15px 20px;
+        margin-bottom: 0;
+        background: white;
+        border: none;
+        border-bottom: 1px solid #e0e0e0;
+        border-top: 1px solid #e0e0e0;
+        box-shadow: none;
+    }
+
+    .team-header {
+        flex-direction: column;
+        gap: 10px;
+        margin-bottom: 12px;
+    }
+
+    .team-name-input {
+        width: 100%;
+        margin-right: 0;
+    }
+
+    /* Рахунки - на всю ширину як список */
+    .score-item {
+        min-width: auto;
+        padding: 18px 20px;
+        margin: 0;
+        flex-shrink: 0;
+        border-radius: 0;
+        border-bottom: 1px solid #e0e0e0;
+        width: 100%;
+        box-shadow: none;
+        background: white;
+        text-align: left;
+    }
+
+    .score-item:first-child {
+        border-top: 1px solid #e0e0e0;
+    }
+
+    .score-item.active {
+        background: #e8e5ff;
+        border-left: 4px solid #667eea;
+        box-shadow: none;
+        transform: none;
+    }
+
+    .scores {
+        flex-direction: column;
+        gap: 0;
+        overflow-x: visible;
+        width: 100%;
+    }
+
+    #scoresDisplay {
+        flex-direction: column;
+        flex-wrap: nowrap;
+        gap: 0;
+        overflow-x: visible;
+        padding-bottom: 0;
+        width: 100%;
+    }
+
+    .score-value {
+        font-size: 1.6em;
+    }
+
+    .score-team-name {
+        font-size: 0.95em;
+    }
+
+    /* Інформація про раунд - на всю ширину */
+    .round-info {
+        gap: 0;
+        padding: 15px 20px;
+        margin-top: 15px;
+        border-radius: 0;
+        background: white;
+        border-top: 1px solid #e0e0e0;
+        border-bottom: 1px solid #e0e0e0;
+        box-shadow: none;
+        flex-direction: column;
+    }
+
+    .round-info-item {
+        min-width: auto;
+        flex: 1;
+        width: 100%;
+        padding: 12px 0;
+        border-bottom: 1px solid #f0f0f0;
+        flex-direction: row;
+        justify-content: space-between;
+    }
+
+    .round-info-item:last-child {
+        border-bottom: none;
+    }
+
+    .round-info-label {
+        font-size: 0.9em;
+    }
+
+    .round-info-value {
+        font-size: 1.2em;
     }
 
     .word {
         font-size: 2.5em;
+        padding: 20px 10px;
     }
 
     .timer {
@@ -641,54 +803,35 @@ h2 {
 
     .game-controls {
         flex-direction: column;
+        gap: 10px;
+        padding: 0 10px;
     }
 
     .game-controls .btn {
         width: 100%;
+        padding: 18px;
+        font-size: 1.1em;
     }
 
     .game-header {
         flex-direction: column;
         text-align: center;
+        margin-bottom: 20px;
+        padding: 0 10px;
     }
 
-    .team-header {
-        flex-direction: column;
-        gap: 10px;
-    }
-
-    .team-name-input {
+    .scoreboard {
         width: 100%;
-        margin-right: 0;
-    }
-
-    .score-item {
-        min-width: 100px;
-        padding: 12px 20px;
-        margin: 0;
-        flex-shrink: 0;
-    }
-
-    .score-value {
-        font-size: 1.5em;
-    }
-
-    .scores {
-        gap: 10px;
-        justify-content: center;
-        overflow-x: auto;
-    }
-
-    #scoresDisplay {
-        flex-wrap: nowrap;
-        gap: 10px;
-        overflow-x: auto;
-        padding-bottom: 5px;
+        min-width: auto;
     }
 
     .round-start-info {
         min-width: auto;
-        padding: 30px 20px;
+        padding: 25px 20px;
+        border-radius: 0;
+        margin: 20px 0;
+        width: 100%;
+        box-shadow: none;
     }
 
     .round-start-team,
@@ -702,46 +845,100 @@ h2 {
 
     .round-start-scores {
         max-width: 100%;
-        overflow-x: auto;
-        padding: 0 10px;
+        overflow-x: visible;
+        padding: 0;
+        width: 100%;
     }
 
     #roundStartScoresDisplay {
-        gap: 10px;
+        flex-direction: column;
+        gap: 0;
         justify-content: flex-start;
+        width: 100%;
     }
 
     .round-start-score-item {
-        min-width: 100px;
-        padding: 12px 20px;
+        min-width: auto;
+        padding: 18px 20px;
+        border-radius: 0;
+        width: 100%;
+        border-bottom: 1px solid #e0e0e0;
+        box-shadow: none;
+        background: white;
+        text-align: left;
+    }
+
+    .round-start-score-item:first-child {
+        border-top: 1px solid #e0e0e0;
+    }
+
+    .round-start-score-item.active {
+        background: #e8e5ff;
+        border-left: 4px solid #667eea;
+        box-shadow: none;
+        transform: none;
     }
 
     .round-start-score-value {
-        font-size: 1.5em;
+        font-size: 1.6em;
     }
 
     .btn-large {
-        padding: 15px 30px;
-        font-size: 1.2em;
-        min-width: 150px;
+        padding: 20px 30px;
+        font-size: 1.3em;
+        width: 100%;
+        min-width: auto;
     }
 
-    .round-info {
-        gap: 20px;
+    /* Результати - на всю ширину як список */
+    .final-score-item {
+        border-radius: 0;
+        padding: 18px 20px;
+        margin-bottom: 0;
+        border-bottom: 1px solid #e0e0e0;
+        border-top: 1px solid #e0e0e0;
+        box-shadow: none;
+    }
+
+    .final-score-item.winner {
+        background: #e8e5ff;
+        border-left: 4px solid #667eea;
+    }
+
+    .result-actions {
+        flex-direction: column;
+        gap: 10px;
+        padding: 0 10px;
+    }
+
+    .result-actions .btn {
+        width: 100%;
+        padding: 18px;
+    }
+
+    /* Додаткові кнопки */
+    .btn {
+        width: 100%;
         padding: 15px;
-        margin-top: 15px;
     }
 
-    .round-info-item {
-        min-width: 100px;
+    #addTeamBtn {
+        width: 100%;
+        margin-top: 10px;
     }
 
-    .round-info-label {
-        font-size: 0.75em;
+    #startGameBtn {
+        width: 100%;
+        margin-top: 10px;
+        padding: 18px;
     }
 
-    .round-info-value {
-        font-size: 1.1em;
+    /* Поля вводу */
+    .section input[type="number"] {
+        width: 100%;
+        max-width: 100%;
+        padding: 12px;
+        margin-top: 8px;
     }
 }
 
@@ -756,6 +953,10 @@ h2 {
 
     .member-input-group {
         flex-direction: column;
+    }
+
+    .member-input {
+        width: 100%;
     }
 }
 
