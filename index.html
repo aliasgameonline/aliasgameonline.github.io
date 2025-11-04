@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Гра Alias</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <!-- Екран налаштування гри -->
+        <div id="setupScreen" class="screen active">
+            <h1>Гра Alias</h1>
+            
+            <div class="section">
+                <h2>Вибір тематики</h2>
+                <div class="themes-grid">
+                    <label class="theme-option">
+                        <input type="checkbox" value="general" checked>
+                        <span>Загальні слова</span>
+                    </label>
+                    <label class="theme-option">
+                        <input type="checkbox" value="animals">
+                        <span>Тварини</span>
+                    </label>
+                    <label class="theme-option">
+                        <input type="checkbox" value="food">
+                        <span>Їжа</span>
+                    </label>
+                    <label class="theme-option">
+                        <input type="checkbox" value="sports">
+                        <span>Спорт</span>
+                    </label>
+                    <label class="theme-option">
+                        <input type="checkbox" value="movies">
+                        <span>Фільми</span>
+                    </label>
+                    <label class="theme-option">
+                        <input type="checkbox" value="technology">
+                        <span>Технології</span>
+                    </label>
+                    <label class="theme-option">
+                        <input type="checkbox" value="nature">
+                        <span>Природа</span>
+                    </label>
+                    <label class="theme-option">
+                        <input type="checkbox" value="professions">
+                        <span>Професії</span>
+                    </label>
+                </div>
+            </div>
+
+            <div class="section">
+                <h2>Команди</h2>
+                <div id="teamsContainer"></div>
+                <button id="addTeamBtn" class="btn btn-secondary">+ Додати команду</button>
+            </div>
+
+            <div class="section">
+                <label for="roundTime">Час раунду (секунди):</label>
+                <input type="number" id="roundTime" value="60" min="30" max="180">
+            </div>
+
+            <div class="section">
+                <label for="totalRounds">Кількість раундів:</label>
+                <input type="number" id="totalRounds" value="3" min="1" max="10">
+            </div>
+
+            <button id="startGameBtn" class="btn btn-primary">Почати гру</button>
+        </div>
+
+        <!-- Екран початку раунду -->
+        <div id="roundStartScreen" class="screen">
+            <div class="round-start-content">
+                <h1>Початок раунду</h1>
+                <div class="round-start-info">
+                    <div class="round-start-team">Команда: <span id="roundStartTeamName"></span></div>
+                    <div class="round-start-player">Пояснює: <span id="roundStartPlayerName"></span></div>
+                    <div class="round-start-round">Раунд: <span id="roundStartRoundNumber"></span></div>
+                </div>
+                <button id="startRoundBtn" class="btn btn-primary btn-large">Старт</button>
+            </div>
+        </div>
+
+        <!-- Екран гри -->
+        <div id="gameScreen" class="screen">
+            <div class="game-header">
+                <div class="scoreboard">
+                    <div id="currentTeamName" class="current-team"></div>
+                    <div class="scores">
+                        <div id="scoresDisplay"></div>
+                    </div>
+                </div>
+                <div class="timer-container">
+                    <div id="timer" class="timer">60</div>
+                </div>
+            </div>
+
+            <div class="word-display">
+                <div id="currentWord" class="word"></div>
+            </div>
+
+            <div class="game-controls">
+                <button id="correctBtn" class="btn btn-success">✓ Правильно</button>
+                <button id="wrongBtn" class="btn btn-danger">✗ Неправильно</button>
+            </div>
+
+            <div class="round-info">
+                <div>Раунд: <span id="roundNumber">1</span></div>
+                <div>Команда: <span id="currentTeamDisplay"></span></div>
+                <div>Пояснює: <span id="currentPlayerDisplay"></span></div>
+            </div>
+        </div>
+
+        <!-- Екран результатів -->
+        <div id="resultsScreen" class="screen">
+            <h1>Результати гри</h1>
+            <div id="finalScores"></div>
+            <div class="result-actions">
+                <button id="newRoundBtn" class="btn btn-primary">Наступний раунд</button>
+                <button id="newGameBtn" class="btn btn-secondary">Нова гра</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
+
